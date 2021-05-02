@@ -61,6 +61,10 @@ class Graphlist:
     def map(self, fn):
         graphs = [fn(G) for G in self]
         return Graphlist(graphs)
+    
+    def slice(self, indices):
+        graphs = [self[i] for i in indices]
+        return Graphlist(graphs)
 
     def iternodes(self, data=False):
         for G in self._graphs:
