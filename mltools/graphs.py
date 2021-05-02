@@ -57,6 +57,10 @@ class Graphlist:
     def filter(self, fn):
         graphs = [G for G in self if fn(G)]
         return Graphlist(graphs)
+    
+    def map(self, fn):
+        graphs = [fn(G) for G in self]
+        return Graphlist(graphs)
 
     def iternodes(self, data=False):
         for G in self._graphs:
