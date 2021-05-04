@@ -1,6 +1,6 @@
 from sklearn.model_selection import ParameterGrid
 
-from .namespace import Options
+from .options import Options
 from .serialization import load_yaml, save_yaml
 
 
