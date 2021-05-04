@@ -1,11 +1,7 @@
 from sklearn.model_selection import ParameterGrid
 
-from .namespace import NamespaceDict
+from .namespace import Options
 from .serialization import load_yaml, save_yaml
-
-
-class Params(NamespaceDict):
-    pass
 
 
 class Grid:
@@ -19,10 +15,10 @@ class Grid:
 
     def __iter__(self):
         for hparam in self._grid:
-            yield Params(**hparam)
+            yield Options(**hparam)
 
     def __getitem__(self, index):
-        return Params(**self._grid[index])
+        return Options(**self._grid[index])
 
     def save(self, path):
         save_yaml(self._grid.param_grid[0], path)
