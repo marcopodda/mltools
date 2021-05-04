@@ -41,7 +41,8 @@ class Options(Namespace):
                 raise TypeError(f"Unsupported type for positional argument #{i}: {type(obj)}")
 
             for name, value in obj.items():
-                self.__dict__[name] = value
+                if name != "self":
+                    self.__dict__[name] = value
 
         for name, value in kwargs.items():
             self.__dict__[name] = value
