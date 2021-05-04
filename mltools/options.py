@@ -12,6 +12,10 @@ class Options(Namespace):
         attrdict = load_yaml(path)
         return cls.from_dict(attrdict)
 
+    def to_yaml(self, path):
+        attrdict = self.to_dict()
+        save_yaml(attrdict, path)
+    
     def to_dict(self):
         return vars(self)
 
